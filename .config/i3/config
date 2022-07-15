@@ -199,10 +199,12 @@ gaps outer 1
 
 # border setting
 default_border none
+default_floating_border none
 
 # auto floating windows
 for_window [class="Clash for Windows"] floating enable
 for_window [class="icalingua++"] floating enable
+for_window [class="Oracle VM VirtualBox Manager"] floating enable
 
 # restrict floating windows size
 floating_maximum_size 2400 x 1380
