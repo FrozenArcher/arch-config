@@ -113,6 +113,8 @@ alias mw="$HOME/winfs/mount.sh"
 alias pm="sudo pacman "
 # ranger
 alias ra=ranger
+# thefuck
+eval $(thefuck --alias)
 
 #  editing  #
 # nvim
@@ -131,5 +133,6 @@ alias xof="unset http_proxy;unset https_proxy"
 #  debug  #
 # launch polybar
 alias po="$HOME/.config/polybar/launch.sh"
-alias poo="$HOME/.config/polybar.pre/launch.sh"
+
+#  sync dotfiles  #
 alias config='/usr/bin/git --git-dir=/home/fracher/.cfg/ --work-tree=/home/fracher'

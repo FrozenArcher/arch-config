@@ -26,7 +26,7 @@ exec --no-startup-id ~/.fehbg
 exec --no-startup-id picom -b
 
 # polybar
-exec --no-startup-id $HOME/.config/polybar/launch.sh
+#exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 # icalingua
 exec --no-startup-id icalingua
@@ -64,11 +64,14 @@ bindsym XF86MonBrightnessDown exec xbacklight -5
 #  shortcuts for apps  #
 ########################
 
+# start Clash for Windows
+bindsym $mod+o exec cfw
+
 # start icaligua++
 bindsym $mod+i exec icalingua
 
 # restart polybar
-bindsym $mod+p exec $HOME/.config/polybar/launch.sh
+#bindsym $mod+p exec $HOME/.config/polybar/launch.sh
 
 # start a terminal
 bindsym $mod+Return exec kitty
@@ -157,17 +160,18 @@ bindsym $mod+space focus mode_toggle
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
 # exit i3 by rofi powermenu
 bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-	set $d 5
+	    set $d 5
 
         bindsym $right resize shrink width $d px or $d ppt
         bindsym $up resize grow height $d px or $d ppt
@@ -221,16 +225,16 @@ set $darkbluetrans	#08052be6
 set $darkblue		#08052b
 set $lightblue		#5294e2
 set $urgentred		#e53935
-set $white		#ffffff
-set $black		#000000
-set $purple		#e345ff
+set $white		    #ffffff
+set $black		    #000000
+set $purple		    #e345ff
 set $darkgrey		#383c4a
-set $grey		#b0b5bd
+set $grey		    #b0b5bd
 set $mediumgrey		#8b8b8b
 set $yellowbrown	#e1b700
 # my settings
-set $light		#ddddbb
-set $bright		#ffffdd
+set $light		    #ddddbb
+set $bright		    #ffffdd
 
 # window colors
 # class                 border		background 	text    	indicator 	child_border
@@ -246,21 +250,21 @@ client.background       #ffffff
 #  bar configuration  #
 #######################
 
-# use polybar, so disable the default bar
-#bar {
-#        status_command i3status
-#	colors {
-#		separator          	$grey
-#		background         	$darkgrey
-#		statusline         	$white
-#
-#		#class          	border 		        bg		txt		indicator
-#		focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
-#		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
-#		inactive_workspace	$darkblue   		$darkblue	$grey		$purple
-#		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
-#	}
-#}
+bar {
+    font pango:JetBrainsMono Nerd Font 10
+    status_command /bin/i3status-rs $HOME/.config/i3/bar.toml
+	colors {
+		separator          	$grey
+		background         	#282828
+		statusline         	$white
+
+		#class          	border 		    bg		    txt	    	indicator
+		focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
+		active_workspace	$lightblue   	$darkgrey	$darkgrey	$purple
+		inactive_workspace	$darkgrey   	$darkgrey	$grey		$purple
+		urgent_workspace	$urgentred	    $urgentred	$white		$purple
+    }
+}
 
 
 ########################
