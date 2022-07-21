@@ -119,6 +119,7 @@ eval $(thefuck --alias)
 #  editing  #
 # nvim
 alias nv=nvim
+alias n="nvim ."
 # for convienience
 alias sczsh="source $HOME/.zshrc"
 
@@ -129,6 +130,8 @@ alias ca=cargo
 # terminal proxy settings
 alias xon="export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890"
 alias xof="unset http_proxy;unset https_proxy"
+# reload picom
+alias rp="killall -q picom && picom -b"
 
 #  debug  #
 # launch polybar
