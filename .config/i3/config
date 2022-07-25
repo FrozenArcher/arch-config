@@ -21,7 +21,7 @@ font pango:JetBrainsMono Nerd Font 12
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
+#exec --no-startup-id dex --autostart --environment i3
 
 # background image
 exec --no-startup-id ~/.fehbg
@@ -29,11 +29,26 @@ exec --no-startup-id ~/.fehbg
 # compositor
 exec --no-startup-id picom -b
 
+# bluetooth
+exec --no-startup-id blueberry-tray
+
+# Thunderbird
+exec --no-startup-id thunderbird
+
+# flameshot
+#exec --no-startup-id flameshot &
+
+# udiskie with tray
+exec --no-startup-id udiskie --tray &
+
 # polybar
 #exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 # icalingua
-exec --no-startup-id icalingua
+#exec --no-startup-id icalingua
+
+# tim
+exec --no-startup-id /opt/apps/com.qq.office.deepin/files/run.sh
 
 # Clash for windows
 exec --no-startup-id cfw
@@ -67,11 +82,14 @@ bindsym XF86MonBrightnessDown exec xbacklight -5
 #  shortcuts for apps  #
 ########################
 
+# xfce4 screen shoot tool (region selection)
+bindsym $mod+Shift+s exec xfce4-screenshooter -r
+
 # start Clash for Windows
 bindsym $mod+o exec cfw
 
 # start icaligua++
-bindsym $mod+i exec icalingua
+#bindsym $mod+i exec icalingua
 
 # restart polybar
 #bindsym $mod+p exec $HOME/.config/polybar/launch.sh
@@ -208,10 +226,12 @@ gaps outer 1
 default_border none
 default_floating_border none
 
-# auto floating windows
+# for_window commands
 for_window [class="Clash for Windows"] floating enable
 for_window [class="icalingua++"] floating enable
 for_window [class="Oracle VM VirtualBox Manager"] floating enable
+for_window [class="qt5ct" instance="qt5ct"] floating enale
+for_window [class="blueberry"] floating enable
 
 # restrict floating windows size
 floating_maximum_size 2400 x 1380
@@ -283,10 +303,22 @@ set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws7 "7 🎵"
+set $ws8 "8  "
+set $ws9 "9  "
+set $ws10 "10  "
+
+# bind program to workspace and focus to them on startup:
+assign [class="qqmusic"] $ws7
+assign [class="Thunar"] $ws8
+assign [class="Thunderbird"] $ws9
+#assign [class="tim"] $ws10
+
+# automatic set focus new window if it opens on another workspace then the current:
+for_window [class=Thunar] focus
+for_window [class=Thunderbird] focus
+#for_window [class="tim"] focus
+for_window [class="qqmusic"] focus
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
