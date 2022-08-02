@@ -51,7 +51,7 @@ exec --no-startup-id udiskie --tray &
 #exec --no-startup-id icalingua
 
 # tim
-exec --no-startup-id /opt/apps/com.qq.office.deepin/files/run.sh
+#exec --no-startup-id /opt/apps/com.qq.office.deepin/files/run.sh
 
 # Clash for windows
 exec --no-startup-id cfw
