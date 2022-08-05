@@ -78,7 +78,12 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+
 # User configuration
+
+###########################
+#  Environment variables  #
+###########################
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -95,18 +100,21 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+
+#############
+#  aliases  #
+#############
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #  actions  #
 # mount windows fs
 alias mw="$HOME/winfs/mount.sh"
+# refresh mirrorlist, not for convienience
+alias mirror-refresh="sudo systemctl start reflector && cat /etc/pacman.d/mirrorlist"
 
 #  run apps  #
 # pacman
