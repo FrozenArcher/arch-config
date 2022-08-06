@@ -9,22 +9,23 @@ max_width = 40
 block = "disk_space"
 path = "/"
 alias = "/"
-info_type = "available"
+info_type = "used"
 unit = "GB"
 interval = 20
-warning = 20.0
-alert = 10.0
-format = "{icon} {available}"
+warning = 70.0
+alert = 90.0
+format = "{icon} {used}/{total}"
 
 [[block]]
 block = "disk_space"
 path = "/home"
 alias = "/home"
-info_type = "available"
+info_type = "used"
 unit = "GB"
 interval = 20
-warning = 30.0
-alert = 15.0
+warning = 150.0
+alert = 165.0
+format = "{used}/{total}"
 
 [[block]]
 block = "backlight"
