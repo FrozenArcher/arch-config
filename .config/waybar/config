@@ -1,18 +1,19 @@
-// Global 
+// Global
 {
     "layer": "top",
     "position": "top",
 
     // If height property would be not present, it'd be calculated dynamically
-    "height": 24,
+    "height": 20,
 
     "modules-left": [
         "custom/launcher",
         "sway/workspaces",
         "sway/mode",
     ],
- 
+
     "modules-center": [
+        "clock",
     ],
 
     "modules-right": [
@@ -24,9 +25,10 @@
         //"custom/keyboard-layout",
         "battery",
         //"custom/PBPbattery",
-        "backlight#icon",
-        "backlight#value",
-        "clock",
+        /* "backlight#icon", */
+        /* "backlight#value", */
+        "backlight",
+        //"clock",
         "tray",
         //"custom/weather",
         "custom/power",
@@ -48,12 +50,12 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon} ",
-        "format-charging": "{capacity}%  ",
-        "format-plugged": "{capacity}%  ",
+        "format": "{icon} {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": " {capacity}%",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": [" ", " ", " ", " ", " "]
     },
 
     "custom/PBPbattery": {
@@ -92,7 +94,7 @@
     "memory": {
         "interval": 5,
         "format": " {}%", // Icon: memory
-        "on-click": "xfce4-terminal -e 'htop'", 
+        "on-click": "xfce4-terminal -e 'htop'",
         "states": {
             "warning": 70,
             "critical": 90
@@ -133,7 +135,7 @@
         "format-icons": {
             //"1": "   ",
             //"2": "   ",
-            //"3": "   ",
+            "8": "8   ",
             //"4": "   ",
         }
     },
@@ -163,7 +165,7 @@
     // to use the weather module replace <your_location> with your city or town
     // note: do not use spaces: new york would be newyork
     "custom/weather": {
-        "exec": "~/.config/waybar/scripts/weather.sh <your_location>", 
+        "exec": "~/.config/waybar/scripts/weather.sh <your_location>",
         "return-type": "json",
         "interval": 600,
     },
@@ -173,17 +175,24 @@
         "spacing":8,
      },
 
-    "backlight#icon": {
-        "format": "{icon}",
+    /* "backlight#icon": { */
+    /*     "format": "{icon}", */
+    /*     "format-icons": [" "], */
+    /*     "on-scroll-down": "brightnessctl -c backlight set 1%-", */
+    /*     "on-scroll-up": "brightnessctl -c backlight set +1%" */
+    /* }, */
+    /**/
+    /* "backlight#value" :{ */
+    /*      "format": "{percent}%", */
+    /*      "on-scroll-down": "brightnessctl -c backlight set 1%-", */
+    /*      "on-scroll-up": "brightnessctl -c backlight set +1%" */
+    /* }, */
+
+    "backlight": {
+        "format": "{icon}{percent}%",
         "format-icons": [" "],
         "on-scroll-down": "brightnessctl -c backlight set 1%-",
         "on-scroll-up": "brightnessctl -c backlight set +1%"
-    },
-
-    "backlight#value" :{
-         "format": "{percent}%",
-         "on-scroll-down": "brightnessctl -c backlight set 1%-",
-         "on-scroll-up": "brightnessctl -c backlight set +1%"
     },
 
     "custom/firefox": {

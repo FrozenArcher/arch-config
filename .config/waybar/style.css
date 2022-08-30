@@ -13,8 +13,8 @@
 /*
 Arc-Dark Color Scheme
 */
-@define-color highlight #5294e2 ;
-@define-color base1  #404552 ;
+@define-color highlight #52a5e5 ;
+@define-color base1  #202330 ;
 
 @keyframes blink-warning {
     70% {

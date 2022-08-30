@@ -39,10 +39,10 @@ exec --no-startup-id cfw
 ##########################
 ## Output configuration ##
 ##########################
- 
+
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
- 
+
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
@@ -52,12 +52,12 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 ########################
 ## Idle configuration ##
 ########################
- 
+
 exec swayidle -w \
          timeout 300 $lockcmd \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          before-sleep $lockcmd
- 
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -65,7 +65,7 @@ exec swayidle -w \
 #########################
 ## Input configuration ##
 #########################
- 
+
 input type:touchpad {
     dwt enabled
     tap enabled
@@ -79,7 +79,7 @@ input type:touchpad {
 ##################
 ## Key bindings ##
 ##################
- 
+
 # Basics:
 #
     # Start a terminal
@@ -90,7 +90,7 @@ input type:touchpad {
 
     # Start your launcher
     bindsym $mod+d exec $menu
-	
+
     #lock screen
     bindsym $mod+Shift+x exec $lockcmd
 
@@ -205,6 +205,14 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+#####################
+## Window settings ##
+#####################
+
+for_window [class="Clash for Windows"] floating enable
+for_window [class="icalingua++"] floating enable
+for_window [class="qt5ct" instance="qt5ct"] floating enable
 
 ########################
 ## Window appeareance ##
