@@ -27,6 +27,9 @@ set $menu wofi -c ~/.config/wofi/config -I
 # command to lock screen
 set $lockcmd '~/.config/sway/scripts/lockman.sh'
 
+# command to open power menu
+set $powermenu ~/.config/waybar/scripts/power-menu.sh
+
 ####################
 ## Autostart apps ##
 ####################
@@ -105,7 +108,10 @@ input type:touchpad {
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    # open power menu
+    bindsym $mod+Shift+e exec $powermenu
 
     # Activities
     bindsym $mod+p exec ~/.config/wofi/windows.py
