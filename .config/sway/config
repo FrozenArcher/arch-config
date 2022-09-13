@@ -38,6 +38,8 @@ set $powermenu ~/.config/waybar/scripts/power-menu.sh
 exec --no-startup-id waybar
 # Clash for Windows
 exec --no-startup-id cfw
+# fcitx
+exec --no-startup-id fcitx5
 
 ##########################
 ## Output configuration ##
@@ -250,7 +252,7 @@ for_window [shell="x_wayland"] title_format "%class - %title"
 ## Status Bar ##
 ################
 #
-# disable sway bar; use waybar instead
+# disable sway bar; using waybar
 #
 # Read `man 5 sway-bar` for more information about this section.
 #bar {
