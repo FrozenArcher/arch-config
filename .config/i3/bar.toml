@@ -53,13 +53,13 @@ format = "{percentage}"
 full_format = "{percentage}"
 hide_missing = true
 
-[[block]]
-block = "nvidia_gpu"
-label = "RTX 3070"
-show_memory = true
-show_clocks = true
-show_fan_speed = true
-interval = 1
+# [[block]]
+# block = "nvidia_gpu"
+# label = "RTX 3070"
+# show_memory = true
+# show_clocks = true
+# show_fan_speed = true
+# interval = 1
 
 [[block]]
 block = "time"

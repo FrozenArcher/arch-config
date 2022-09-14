@@ -87,15 +87,16 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='nvim'
 fi
+
+# Shell proxy
+export http_proxy='http://127.0.0.1:7890'
+export https_proxy='http://127.0.0.1:7890'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -123,6 +124,8 @@ alias pm="sudo pacman "
 alias ra=ranger
 # thefuck
 eval $(thefuck --alias)
+# neofetch
+alias nf=neofetch
 
 #  editing  #
 # nvim
