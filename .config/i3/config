@@ -277,7 +277,7 @@ client.background       #ffffff
 #######################
 
 bar {
-    font pango:JetBrainsMono Nerd Font 12
+    font pango:JetBrainsMono Nerd Font 9
     status_command /bin/i3status-rs $HOME/.config/i3/bar.toml
     position top
 	colors {
