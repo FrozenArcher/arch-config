@@ -32,11 +32,13 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+source ~/.xprofile
+
 # Here dwm is kept as default
 session=${1:-dwm}
 
 case $session in
-    dwm               ) 
+    dwm               )
         # Statusbar loop
         while true; do
             xsetroot -name "$( date +"%F %R" )"
@@ -44,15 +46,24 @@ case $session in
         done &
 
         # Autostart section
-        # pcmanfm & 
+        # pcmanfm &
 
         # wallpaper
         ~/.fehbg &
+        # input method
+        fcitx5 -d --verbose 2
+        # tray apps
+        blueberry-tray
+        udiskie --tray &
+        nm-applet &
 
         exec dwm;;
 
     i3|i3wm           ) exec i3;;
-    kde|plasma        ) exec startplasma-x11;;
+    kde|plasma        )
+        unset QT_QPA_PLATFORMTHEME
+        exec startplasma-x11;;
+
     # No known session, try to run it as command
     *                 ) exec $1;;
 esac
