@@ -52,6 +52,7 @@ case $session in
         ~/.fehbg &
         # input method
         fcitx5 -d --verbose 2
+        # bar
         # tray apps
         blueberry-tray
         udiskie --tray &
