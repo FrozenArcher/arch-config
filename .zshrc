@@ -111,6 +111,10 @@ export https_proxy='http://127.0.0.1:7890'
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+#  start desktop  #
+alias x=startx
+alias s="sudo systemctl start sddm"
+
 #  actions  #
 # mount windows fs
 alias mw="$HOME/winfs/mount.sh"
@@ -126,6 +130,8 @@ alias ra=ranger
 eval $(thefuck --alias)
 # neofetch
 alias nf=neofetch
+# cowsay
+alias cs=cowsay
 
 #  editing  #
 # nvim

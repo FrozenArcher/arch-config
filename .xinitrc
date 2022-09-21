@@ -32,41 +32,45 @@ fi
 
 source ~/.xprofile
 
-# Here dwm is kept as default
-session=${1:-dwm}
+
+# Autostart section
+# pcmanfm &
+# picom
+picom --experimental-backends -b
+# wallpaper
+~/.fehbg &
+# input method
+fcitx5 -d --verbose 2
+# clash
+cfw &
+
+# bar
+~/.config/polybar/launch.sh &
+# tray apps
+blueberry-tray
+udiskie --tray &
+nm-applet &
+
+exec bspwm
+
+
+session=${1:-bspwm}
 
 case $session in
-    dwm               )
-        # Autostart section
-        # pcmanfm &
+    bsp|bspwm|b       )
+        exec bspwm;;
 
-        # picom
-        picom --experimental-backends -b
-        # wallpaper
-        ~/.fehbg &
-        # input method
-        fcitx5 -d --verbose 2
-
-        # bar
-        # tray apps
-        blueberry-tray
-        udiskie --tray &
-        nm-applet &
+    dwm|d             )
         # Statusbar loop
         while true; do
             xsetroot -name "$( date +"%F %R" )"
             sleep 1m    # Update time every minute
         done &
 
-
         exec dwm;;
 
     i3|i3wm           ) exec i3;;
-    kde|plasma        )
-        unset QT_QPA_PLATFORMTHEME
-        exec startplasma-x11;;
 
-    # No known session, try to run it as command
     *                 ) exec $1;;
 esac
 
