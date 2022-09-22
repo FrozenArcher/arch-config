@@ -34,7 +34,8 @@ source ~/.xprofile
 
 
 # Autostart section
-# pcmanfm &
+# auto locker
+~/scripts/locker &
 # picom
 picom --experimental-backends -b
 # wallpaper
@@ -46,13 +47,11 @@ cfw &
 
 # bar
 ~/.config/polybar/launch.sh &
+
 # tray apps
 blueberry-tray
 udiskie --tray &
 nm-applet &
-
-exec bspwm
-
 
 session=${1:-bspwm}
 
