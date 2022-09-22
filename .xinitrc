@@ -57,6 +57,7 @@ case $session in
     # bar
     ~/.config/polybar/launch.sh &
 
+        echo "entering bspwm..."
         exec bspwm;;
 
     dwm|d             )
@@ -65,6 +66,8 @@ case $session in
             xsetroot -name "$( date +"%F %R" )"
             sleep 1m    # Update time every minute
         done &
+
+        echo "entering dwm..."
 
         exec dwm;;
 
