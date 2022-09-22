@@ -45,18 +45,18 @@ fcitx5 -d --verbose 2
 # clash
 cfw &
 
-# bar
-~/.config/polybar/launch.sh &
-
 # tray apps
 blueberry-tray
 udiskie --tray &
 nm-applet &
 
-session=${1:-bspwm}
+session=${1:-dwm}
 
 case $session in
     bsp|bspwm|b       )
+    # bar
+    ~/.config/polybar/launch.sh &
+
         exec bspwm;;
 
     dwm|d             )
