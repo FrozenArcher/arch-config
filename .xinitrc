@@ -53,10 +53,11 @@ blueberry-tray
 udiskie --tray &
 nm-applet &
 
-session=${1:-bspwm}
+session=${1:-dwm}
 
 case $session in
     bsp|bspwm|b       )
+        echo "entering bspwm..."
         exec bspwm;;
 
     dwm|d             )
@@ -65,6 +66,8 @@ case $session in
             xsetroot -name "$( date +"%F %R" )"
             sleep 1m    # Update time every minute
         done &
+
+        echo "entering dwm..."
 
         exec dwm;;
 

@@ -11,7 +11,7 @@ super + p
 	rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi
 
 # lock screen
-super + shift + l
+super + shift + x
     ~/scripts/lock
 
 # make sxhkd reload its configuration files:
