@@ -3,12 +3,12 @@
  * Maintainer: joekamprad <joekamprad@endeavouros.com>
  *******************************************************/
 configuration {
-    font:                           "Noto Sans Regular 18";
+    font:                           "HarmonyOS Sans 18";
     show-icons:                     false;
-    icon-theme: 		    "Qogir";
+    icon-theme: 		            "Qogir";
     scroll-method:                  0;
     disable-history:                false;
-    sidebar-mode: 		    false;
+    sidebar-mode: 		            false;
 }
 
 @import "~/.config/rofi/arc_dark_transparent_colors.rasi"
@@ -18,7 +18,7 @@ window {
     border:                         0;
     padding:                        10;
     transparency:                   "real";
-    width:                          240px;
+    width:                          200px;
     location:                       east;
 /*y-offset:                       18;*/
 /*x-offset:	                    850;*/
