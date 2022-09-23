@@ -1,5 +1,8 @@
 #!/bin/sh
 
+unset http_proxy
+unset https_proxy
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -32,47 +35,21 @@ fi
 
 source ~/.xprofile
 
-
-# Autostart section
-# auto locker
-~/scripts/locker &
-# picom
-picom --experimental-backends -b
-# wallpaper
-~/.fehbg &
-# input method
-fcitx5 -d --verbose 2
-# clash
-cfw &
-
-# tray apps
-blueberry-tray
-udiskie --tray &
-nm-applet &
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 session=${1:-dwm}
 
 case $session in
     bsp|bspwm|b       )
-    # bar
-    ~/.config/polybar/launch.sh &
-
-        echo "entering bspwm..."
         exec bspwm;;
-
     dwm|d             )
-        # Statusbar loop
-        while true; do
-            xsetroot -name "$( date +"%F %R" )"
-            sleep 1m    # Update time every minute
-        done &
-
-        echo "entering dwm..."
-
-        exec ~/scripts/loop-dwm.sh;;
-
-    i3|i3wm           ) exec i3;;
-
-    *                 ) exec $1;;
+        exec ~/dwm/scripts/loop-dwm.sh;;
+    i3|i3wm|i         )
+        exec i3;;
+    kde|k             )
+        unset QT_QPA_PLATFORMTHEME
+        exec startplasma-x11;;
+    *                 )
+        exec $1;;
 esac
 

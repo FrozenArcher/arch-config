@@ -112,7 +112,9 @@ export https_proxy='http://127.0.0.1:7890'
 # For a full list of active aliases, run `alias`.
 
 #  start desktop  #
-alias x=startx
+alias x="startx ~/.xinitrc"
+alias xb="startx ~/.xinitrc bspwm"
+alias xi="startx ~/.xinitrc i3"
 alias s="sudo systemctl start sddm"
 
 #  actions  #

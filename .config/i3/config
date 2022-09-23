@@ -19,56 +19,13 @@ font pango:JetBrainsMono Nerd Font 12
 #  autostart apps  #
 ####################
 
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-#exec --no-startup-id dex --autostart --environment i3
-
-# background image
-exec --no-startup-id ~/.fehbg
-
-# compositor
-exec --no-startup-id picom -b
+exec --no-startup-id ~/scripts/wmrc.sh
 
 # power management
 exec --no-startup-id xfce4-power-manager
 
-# bluetooth
-exec --no-startup-id blueberry-tray
-
 # Thunderbird
 exec --no-startup-id thunderbird
-
-# flameshot
-#exec --no-startup-id flameshot &
-
-# udiskie with tray
-exec --no-startup-id udiskie --tray &
-
-# polybar
-#exec --no-startup-id $HOME/.config/polybar/launch.sh
-
-# icalingua
-#exec --no-startup-id icalingua
-
-# tim
-#exec --no-startup-id /opt/apps/com.qq.office.deepin/files/run.sh
-
-# Clash for windows
-exec --no-startup-id cfw
-
-#fcitx5
-exec --no-startup-id fcitx5
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -102,7 +59,7 @@ bindsym $mod+Return exec kitty
 
 # rofi
 # app runner
-bindsym $mod+d exec rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi
+bindsym $mod+p exec rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi
 # show current windows
 bindsym $mod+t exec rofi -show window -config ~/.config/rofi/rofidmenu.rasi
 
@@ -112,10 +69,10 @@ bindsym $mod+t exec rofi -show window -config ~/.config/rofi/rofidmenu.rasi
 ####################
 
 # lock screen
-bindsym $mod+Shift+x exec ~/.config/i3/scripts/blur-lock
+bindsym $mod+Shift+x exec ~/scripts/lock
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
