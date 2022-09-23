@@ -1,6 +1,6 @@
 # Archlinux Configuration
 
-**the complete multi-desktop (Xorg) handled by xinit, plus some extra config.**
+**The complete multi-desktop (Xorg) environment handled by xinit, plus some extra config.**
 
 Also: my [dwm repo](https://github.com/FrozenArcher/dwm.git), my [neovim configuration](https://github.com/FrozenArcher/nvim-config.git)
 
