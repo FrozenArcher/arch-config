@@ -69,7 +69,7 @@ case $session in
 
         echo "entering dwm..."
 
-        exec dwm;;
+        exec ~/scripts/loop-dwm.sh;;
 
     i3|i3wm           ) exec i3;;
 
