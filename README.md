@@ -39,8 +39,10 @@ config checkout
 config checkout
 ```
 
-If you use zsh, the config alias is already in the `.zshrc ` file.
+If you use zsh, the config alias is already in the `.zshrc` file.
 Otherwise you should place it in your shell's profile.
+
+refer to [](https://www.atlassian.com/git/tutorials/dotfiles)
 
 ### The Installation of oh-my-zsh
 
