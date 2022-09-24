@@ -1,5 +1,16 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+############################################################
+############################################################
+###          __                                     __   ###
+###   ____  / /_     ____ ___  __  __   ____  _____/ /_  ###
+###  / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ ###
+### / /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / ###
+### \____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  ###
+###                         /____/                       ###
+###                                                      ###
+###  Configuration by FrozenArcher ;-)                   ###
+###                                                      ###
+############################################################
+############################################################
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -54,18 +65,16 @@ DISABLE_MAGIC_FUNCTIONS="true"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # You can set one of the optional three formats:
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -85,7 +94,8 @@ source $ZSH/oh-my-zsh.sh
 #  Environment variables  #
 ###########################
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:$HOME/go/bin:/usr/local/bin:$PATH
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -117,6 +127,17 @@ alias xb="startx ~/.xinitrc bspwm"
 alias xi="startx ~/.xinitrc i3"
 alias s="sudo systemctl start sddm"
 
+#  git / config cammands  #
+alias config='/usr/bin/git --git-dir=/home/fracher/.cfg/ --work-tree=/home/fracher'
+alias g=git
+alias ga="git add "
+alias gaa="git add ."
+alias gc="git commit -m "
+alias gp="git push -u origin"
+alias gpm="git push -u origin main"
+alias c=config
+alias cpm="config push -u orogin main"
+
 #  actions  #
 # mount windows fs
 alias mw="$HOME/winfs/mount.sh"
@@ -141,6 +162,8 @@ alias nv=nvim
 alias n="nvim ."
 # for convienience
 alias sczsh="source $HOME/.zshrc"
+alias nz="nvim ~/.zshrc"
+alias nx="nvim ~/.xinitrc"
 
 #  coding  #
 alias ca=cargo
@@ -149,12 +172,7 @@ alias ca=cargo
 # terminal proxy settings
 alias xon="export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890"
 alias xof="unset http_proxy;unset https_proxy"
-# reload picom
-alias rp="killall -q picom && picom -b"
 
 #  debug  #
 # launch polybar
 alias po="$HOME/.config/polybar/launch.sh"
-
-#  sync dotfiles  #
-alias config='/usr/bin/git --git-dir=/home/fracher/.cfg/ --work-tree=/home/fracher'
