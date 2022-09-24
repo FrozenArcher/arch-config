@@ -136,7 +136,7 @@ alias gc="git commit -m "
 alias gp="git push -u origin"
 alias gpm="git push -u origin main"
 alias c=config
-alias cpm="config push -u orogin main"
+alias cpm="config push -u origin main"
 
 #  actions  #
 # mount windows fs
