@@ -5,3 +5,11 @@
 	defaultBranch = main
 [core]
 	editor = nvim
+[alias]
+	co = checkout
+	br = branch
+	c = commit
+	s = status
+    a = add
+    pl = pull
+    ps = push
