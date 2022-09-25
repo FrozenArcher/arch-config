@@ -35,8 +35,6 @@ fi
 
 source ~/.xprofile
 
-export QT_QPA_PLATFORMTHEME=qt5ct
-
 session=${1:-dwm}
 
 case $session in
