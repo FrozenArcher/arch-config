@@ -121,11 +121,21 @@ export https_proxy='http://127.0.0.1:7890'
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+#  system control  #
+alias sys="sudo systemctl "
+alias syss="sudo systemctl start "
+alias syse="sudo systemctl enable "
+alias sysse="sudo systemctl enble --now "
+alias sysr="sudo systemctl restart "
+alias po=poweroff
+
 #  start desktop  #
 alias x="startx ~/.xinitrc"
 alias xb="startx ~/.xinitrc bspwm"
 alias xi="startx ~/.xinitrc i3"
 alias s="sudo systemctl start sddm"
+alias po="poweroff"
+alias rb="reboot"
 
 #  git / config cammands  #
 alias config='/usr/bin/git --git-dir=/home/fracher/.cfg/ --work-tree=/home/fracher'
@@ -139,28 +149,18 @@ alias c=config
 alias cpm="config push -u origin main"
 
 #  actions  #
-# mount windows fs
-alias mw="$HOME/winfs/mount.sh"
-# refresh mirrorlist, not for convienience
 alias mirror-refresh="sudo systemctl start reflector && cat /etc/pacman.d/mirrorlist"
 
 #  run apps  #
-# pacman
 alias pm="sudo pacman "
-# ranger
 alias ra=ranger
-# thefuck
 eval $(thefuck --alias)
-# neofetch
 alias nf=neofetch
-# cowsay
 alias cs=cowsay
 
 #  editing  #
-# nvim
 alias nv=nvim
 alias n="nvim ."
-# for convienience
 alias sczsh="source $HOME/.zshrc"
 alias nz="nvim ~/.zshrc"
 alias nx="nvim ~/.xinitrc"
@@ -169,10 +169,6 @@ alias nx="nvim ~/.xinitrc"
 alias ca=cargo
 
 #  system  #
-# terminal proxy settings
+# shell proxy settings
 alias xon="export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890"
 alias xof="unset http_proxy;unset https_proxy"
-
-#  debug  #
-# launch polybar
-alias po="$HOME/.config/polybar/launch.sh"
