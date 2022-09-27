@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# general env vars
-source ~/.xprofile
-# set qt theme
-export QT_QPA_PLATFORMTHEME=qt5ct
+# .xprofile should be sourced in .xinitrc or by display manager
 
 # auto locker
 ~/scripts/locker &
@@ -17,6 +14,9 @@ fcitx5 -d --verbose 2
 cfw &
 
 # tray apps
-blueberry-tray
+if [ "$(pgrep -u $UID -x blueberry-tray)" != "" ]; then
+    blueberry-tray
+fi
+#blueberry-tray
 udiskie --tray &
 nm-applet &
