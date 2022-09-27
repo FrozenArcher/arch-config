@@ -14,9 +14,10 @@ fcitx5 -d --verbose 2
 cfw &
 
 # tray apps
-if [ "$(pgrep -u $UID -x blueberry-tray)" != "" ]; then
-    blueberry-tray
-fi
-#blueberry-tray
+# avoid multiple launch
+killall blueberry-tray
+killall udiskie
+
+blueberry-tray
 udiskie --tray &
 nm-applet &
