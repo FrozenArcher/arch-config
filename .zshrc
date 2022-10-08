@@ -93,7 +93,7 @@ source $ZSH/oh-my-zsh.sh
 ###########################
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/go/bin:/usr/local/bin:$PATH
+export PATH=$HOME/scripts:$HOME/bin:$HOME/go/bin:/usr/local/bin:$PATH
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -123,17 +123,16 @@ export https_proxy='http://127.0.0.1:7890'
 alias sys="sudo systemctl "
 alias syss="sudo systemctl start "
 alias syse="sudo systemctl enable "
-alias sysse="sudo systemctl enble --now "
+alias sysse="sudo systemctl enable --now "
 alias sysr="sudo systemctl restart "
-alias po=poweroff
+alias po="poweroff"
+alias rb="reboot"
 
 #  start desktop  #
 alias x="startx ~/.xinitrc"
 alias xb="startx ~/.xinitrc bspwm"
 alias xi="startx ~/.xinitrc i3"
 alias s="sudo systemctl start sddm"
-alias po="poweroff"
-alias rb="reboot"
 
 #  git / config cammands  #
 alias config='/usr/bin/git --git-dir=/home/fracher/.cfg/ --work-tree=/home/fracher'
