@@ -19,13 +19,14 @@ font pango:JetBrainsMono Nerd Font 12
 #  autostart apps  #
 ####################
 
+# custom startup script
 exec --no-startup-id ~/scripts/wmrc.sh
 
 # power management
 exec --no-startup-id xfce4-power-manager
 
 # Thunderbird
-exec --no-startup-id thunderbird
+# exec --no-startup-id thunderbird
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
