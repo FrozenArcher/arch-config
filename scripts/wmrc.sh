@@ -1,23 +1,18 @@
 #!/bin/bash
 
-# .xprofile should be sourced in .xinitrc or by display manager
-
-# auto locker
+# autostart
 ~/scripts/locker &
-# picom
 picom --experimental-backends -b
-# wallpaper
 ~/.fehbg &
-# input method
 fcitx5 -d --verbose 2
-# clash
 cfw &
+xfce4-power-manager &
 
-# tray apps
 # avoid multiple launch
 killall blueberry-tray
 killall udiskie
 
+# tray apps
 blueberry-tray
 udiskie --tray &
 nm-applet &

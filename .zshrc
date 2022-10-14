@@ -145,6 +145,7 @@ alias gpm="git push -u origin main"
 alias c=config
 alias cpm="config push -u origin main"
 alias ccm="config commit -m "
+alias pa="echo '=> Pulling dotfiles...';config pull;echo '=> Pulling dwm...';cd ~/dwm;git pull;echo '=> Pulling nvim...';cd ~/.config/nvim; git pull"
 
 #  actions  #
 alias mirror-refresh="sudo systemctl start reflector && cat /etc/pacman.d/mirrorlist"

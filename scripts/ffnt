@@ -1,0 +1,18 @@
+#!/bin/bash
+
+helpmsg() {
+    echo "Usage: ffnt [OPTION] <keyword>"
+    echo "    OPTIONS:"
+    echo "    -h    Print this help message and exit."
+}
+
+if [ "$1" == "" ]; then
+    echo "ffnt: Find Font. Please input a keyword."
+    echo "Use ffnt -h to print help message."
+    exit 1
+elif [ "$1" == "-h" ]; then
+    helpmsg
+    exit 0
+fi
+
+fc-list | grep -i "$1" | awk -F':' '{print $2}' | sort | uniq

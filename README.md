@@ -62,6 +62,22 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 ***
 
+## Tools for Development
+
+(except `base-devel`)
+
+### C
+
+```
+# binaries
+valgrind
+doxygen
+
+# libraries
+gsl
+
+```
+
 ## TODO
 
 * clear the scripts
