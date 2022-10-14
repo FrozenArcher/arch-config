@@ -11,7 +11,7 @@ Some related config files and scripts are also available.
 There're config files for the following desktops, which you can start via **sddm entries** or via `xinit` shortcuts (only available with `.zshrc` in my dotfile repo):
 
 * dwm (simply `x` or `x d|dwm`)
-* i3 + i3status-rust (`xi` or `x i|i3`)
+* i3 + polybar (or i3status-rust) (`xi` or `x i|i3`)
 * bspwm + polybar (`xb` or `x b|bsp|bspwm`)
 * kde-plasma (`x k|kde`)
 * swaywm + waybar (sddm only)
