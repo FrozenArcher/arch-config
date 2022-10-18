@@ -93,7 +93,10 @@ source $ZSH/oh-my-zsh.sh
 ###########################
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/scripts:$HOME/bin:$HOME/go/bin:/usr/local/bin:$PATH
+export PATH=$HOME/scripts:$HOME/.local/bin:$HOME/go/bin:/usr/local/bin:$PATH
+
+# user lib path
+export LD_LIBRARY_PATH=$HOME/.local/lib:$LD_LIBRARY_PATH
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
