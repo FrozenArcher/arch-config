@@ -92,6 +92,9 @@ source $ZSH/oh-my-zsh.sh
 #  Environment variables  #
 ###########################
 
+# Go path
+export GOPATH=$HOME/go
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/scripts:$HOME/.local/bin:$HOME/go/bin:/usr/local/bin:$PATH
 
