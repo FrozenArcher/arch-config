@@ -13,3 +13,5 @@
     a = add
     pl = pull
     ps = push
+[pull]
+	rebase = false
