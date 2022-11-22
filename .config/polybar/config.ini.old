@@ -12,40 +12,102 @@
 ;
 ;==========================================================
 
+[global/wm]
+margin-bottom = 0
+margin-top = 0
 
 [colors]
-background = #282c34
-foreground = #FAFAFA
-secondary = #367bf0
-cpu-color = #E5C07B
-mem-color = #E06c75
-update-color = #c678dd
-cal-color = #61AFEF
-bat-color = #98C379
+background-opa = #212227
+background= #ee212227
+background-alt = #373B41
+foreground = #c5c8d6
+primary = #F0C674
+secondary = #8ABEB7
+alert = #A54242
+disabled = #707880
 
 [bar/main]
-; monitor = ${env:MONITOR}
+; Monitor
+; monitor =
+; monitor-strict = false
+monitor-exact = true
+; Tell the Window Manager not to configure the window.
+; Use this to detach the bar if your WM is locking its size/position.
+; Note: With this most WMs will no longer reserve space for
+; the bar and it will overlap other windows. You need to configure
+; your WM to add a gap where the bar will be placed.
+override-redirect = false
+
+; Appearance
+bottom = false
+;   border-{left,top,right,bottom}-size
+;   border-{left,top,right,bottom}-color
+border-top-size = 2pt
+border-top-color = #bcccef
+; When false, the center block is centered in the space between
+; the left and right block.
+fixed-center = true
 width = 100%
-height = 30
-fixed-center = false
+height = 26pt
 background = ${colors.background}
 foreground = ${colors.foreground}
-line-size = 2
-padding-left = 1
-padding-right = 3
-module-margin-left = 1
-module-margin-right = 1
-font-0 = JetBrainsMono Nerd Font:size=12;1
-font-1 = Noto Color Emoji:pixelsize=12;1:fontformat=truetype:scale=12:antialias=true;
-modules-left = ewmh date xwindow
-modules-right = cmus cpu memory battery pulseaudio
+; Background gradient (vertical steps)
+;   background-[0-9]+ = #aarrggbb
+;   radius-{top,bottom}
+;   radius-{top,bottom}-{left,right} (New in version 3.6.0)
+radius = 0
+;   {overline,underline}-size
+;   {overline,underline}-color
+line-size = 3
+line-color = #f00
+;   padding-{left,right}
+padding = 2
+; Opacity value between 0.0 and 1.0 used on fade in/out
+dim-value = 1.0
+;   module-margin-{left,right}
+module-margin = 1
+; Set a DPI values used when rendering text
+; Set this to 0 to let polybar calculate the dpi from the screen size
+; dpi-x = 96
+; dpi-y = 96
+dpi = 0
+; Enable support for inter-process messaging
+enable-ipc = true
+; Fonts are defined using <font-name>;<vertical-offset>
+font-0 = "JetBrainsMono Nerd Font:style=Regular:size=14;2"
+; Fallback click handlers that will be called if
+; there's no matching module handler found.
+click-left =
+click-middle =
+click-right =
+; scroll-up = #bspwm.prev
+; scroll-down = #bspwm.next
+double-click-left =
+double-click-middle =
+double-click-right =
+double-click-interval = 400
+cursor-click =
+cursor-scroll =
+
+offset-x = 0%
+offset-y = 0%
+; Modules
+modules-center = time
+; modules-left = bspwm xwindow
+modules-right = pulseaudio battery
+separator = \\
+separator-foreground = ${colors.disabled}
+; Locale used to localize various module data (e.g. date)
+locale = en_US.UTF-8
+; Tray
 tray-position = right
-tray-padding = 2
+tray-detached = false
 tray-maxsize = 20
-cursor-click = pointer
-cursor-scroll = ns-resize
-separator = "|"
-separator-foreground = ${colors.foreground}
+tray-background = ${root.background}
+tray-foreground = ${root.foreground}
+tray-offset-y = 0
+tray-padding = 1
+tray-scale = 1.0
 
 [bar/bspwm]
 inherit = bar/main
@@ -240,105 +302,184 @@ label-marked = MARK
 label-separator = " "
 label-separator-padding = 0
 label-separator-foreground = #3f3f3f
-[module/xwindow]
-type = internal/xwindow
-label-maxlen = 30
-
-[module/ewmh]
-type = internal/xworkspaces
-label-active = " %name% "
-label-active-foreground = ${colors.foreground}
-label-active-background = ${colors.background}
-label-active-underline = ${colors.bat-color}
-label-occupied = " %name% "
-label-occupied-underline = ${colors.mem-color}
-label-empty = " %name% "
-label-empty-foreground = ${colors.foreground}
-
-[module/cmus]
-type = custom/script
-exec-if = pgrep -x cmus
-exec = ~/.config/leftwm/themes/epitaph/scripts/cmustatus
-format =  <label>
-label = %output%
-interval = 0
-format-foreground = ${colors.update-color}
-
-[module/cpu]
-type = internal/cpu
-interval = 5
-format-prefix = "龍 cpu: "
-format-prefix-foreground = ${colors.cpu-color}
-label = %percentage:2%%
-label-foreground = ${colors.cpu-color}
-
-[module/memory]
-type = internal/memory
-interval = 5
-format-prefix = " mem: "
-format-prefix-foreground = ${colors.mem-color}
-label = %gb_used%
-label-foreground = ${colors.mem-color}
-
-[module/date]
-type = internal/date
-format =  <label>
-format-foreground = ${colors.cal-color}
 
 [module/battery]
 type = internal/battery
+full-at = 100
+low-at = 5
 battery = BAT0
-adapter = ACAD
-full-at = 98
-
+adapter = AC
+poll-interval = 5
+time-format = %H:%M
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
 format-charging = <animation-charging>  <label-charging>
-label-charging =  %percentage%%
-format-charging-foreground = ${colors.foreground}
-format-charging-background = ${colors.background}
-
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
 format-discharging = <ramp-capacity>  <label-discharging>
-label-discharging =  %percentage%%
-format-discharging-foreground = ${colors.foreground}
-format-discharging-background = ${colors.background}
-
-format-full-prefix = "  "
-format-full-prefix-foreground = ${colors.bat-color}
-format-full-foreground = ${colors.update-color}
-format-full-background = ${colors.background}
-
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+format-full = <ramp-capacity>  <label-full>
+; Available tags:
+;   <label-low>
+;   <animation-low>
+;   <bar-capacity>
+;   <ramp-capacity>
+; New in version 3.6.0
+format-low = <animation-low>  <label-low>
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = Charging %percentage%%
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = %percentage%%
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+label-full = Fully charged
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-low = BATTERY LOW
+; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.bat-color}
-
+bar-capacity-width = 10
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${colors.bat-color}
-animation-charging-framerate = 500
+; Framerate in milliseconds
+animation-charging-framerate = 750
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+; Only applies if <animation-low> is used
+animation-low-0 = !
+animation-low-1 =
+animation-low-framerate = 200
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 20;
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /
+label-mounted = %{F#F0C674}%mountpoint%%{F-} %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.disabled}
+
 
 [module/pulseaudio]
 type = internal/pulseaudio
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+use-ui-max = true
+; Interval for volume increase/decrease (in percent points)
+interval = 5
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
 format-volume = <ramp-volume> <label-volume>
-label-volume = %percentage%%
-label-volume-foreground = ${root.foreground}
-ramp-volume-0 = 奄
-ramp-volume-0-foreground = ${colors.bat-color}
-ramp-volume-1 = 奔
-ramp-volume-1-foreground = ${colors.cpu-color}
-ramp-volume-2 = 墳
-ramp-volume-2-foreground = ${colors.mem-color}
-label-muted = 婢 muted
-label-muted-foreground = ${colors.cal-color}
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-muted = <label-muted>
+; Available tokens:
+;   %percentage% (default)
+;   %decibels%
+label-volume = VOL %percentage%%
+; Available tokens:
+;   %percentage% (default)
+;   %decibels%
+label-muted = 🔇 muted
+label-muted-foreground = ${colors.disabled}
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+; Right and Middle click
+click-right = pavucontrol
+; click-middle =
 
-[module/power]
-type = custom/text
-content = " "
-click-left = ~/.config/leftwm/themes/epitaph/scripts/dmenu/power-menu
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "RAM "
+format-prefix-foreground = ${colors.primary}
+label = %percentage_used:2%%
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "CPU "
+format-prefix-foreground = ${colors.primary}
+label = %percentage:2%%
+
+
+[network-base]
+type = internal/network
+interval = 5
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
+
+[module/wlan]
+inherit = network-base
+interface-type = wireless
+label-connected = wlan %essid%
+
+[module/eth]
+inherit = network-base
+interface-type = wired
+label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
+
+
+[module/date]
+type = internal/date
+
+
+[module/time]
+inherit = module/date
+time = %H:%M %Y-%m-%d %A
+label = %time%
+
 
 [settings]
 screenchange-reload = true
+pseudo-transparency = true
+
+; vim:ft=dosini

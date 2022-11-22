@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill '/home/fracher/Pictures/desktop.jpg' 
+feh --no-fehbg --bg-fill ~/Pictures/desktop.jpg
