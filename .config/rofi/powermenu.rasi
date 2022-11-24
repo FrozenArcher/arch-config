@@ -3,7 +3,7 @@
  * Maintainer: joekamprad <joekamprad@endeavouros.com>
  *******************************************************/
 configuration {
-    font:                           "HarmonyOS Sans 18";
+    font:                           "FiraCode Nerd Font 16";
     show-icons:                     false;
     icon-theme: 		            "Qogir";
     scroll-method:                  0;
@@ -117,4 +117,3 @@ textbox-prompt-colon {
     margin:     0px 0.3em 0em 0em ;
     text-color: @normal-foreground;
 }
-
