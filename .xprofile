@@ -7,3 +7,6 @@ export GLFW_IM_MODULE=ibus
 
 # QT theme
 export QT_QPA_PLATFORMTHEME=qt5ct
+
+# Default proxy settings
+export all_proxy="http://127.0.0.1:7890"

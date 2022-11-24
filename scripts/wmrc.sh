@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # autostart
-~/scripts/locker &
-picom --experimental-backends -b
+# ~/scripts/locker &
+picom -b
 ~/.fehbg &
 fcitx5 -d --verbose 2
 cfw &
