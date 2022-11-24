@@ -2,7 +2,7 @@
 
 # autostart
 # ~/scripts/locker &
-picom -b
+picom -b --experimental-backends
 ~/.fehbg &
 fcitx5 -d --verbose 2
 cfw &
