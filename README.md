@@ -26,7 +26,7 @@ using git bare repository:
 # set up the alias and clone repository
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 echo ".cfg" >> .gitignore
-git clone --bare https://github.com/FrozenArcher/dotfiles.git $HOME/.cfg
+git clone --bare https://github.com/FrozenArcher/archconfig.git $HOME/.cfg
 config config --local status.showUntrackedFiles no
 
 config checkout
