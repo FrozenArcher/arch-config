@@ -13,6 +13,9 @@ if [ "$1" == "" ]; then
 elif [ "$1" == "-h" ]; then
     helpmsg
     exit 0
+elif [ "$1" == "-f" ]; then
+    echo $1 $2
+    fc-list | grep -i "$2" | cut -d':' -f1 | sort | uniq
 fi
 
-fc-list | grep -i "$1" | awk -F':' '{print $2}' | sort | uniq
+fc-list | grep -i "$1" | cut -d':' -f2 | cut -d',' -f1 | sort | uniq

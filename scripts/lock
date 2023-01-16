@@ -4,4 +4,4 @@
 # convert /tmp/screenshot.png -blur 0x20 /tmp/screenshotblur.png
 # convert /tmp/screenshotblur.png ~/scripts/banner_resize.png -gravity center -composite -matte /tmp/screenlock.png
 
-i3lock-fancy -t "FrozenArcher -- HJJ" -f "HarmonyOS-Sans"
+i3lock-fancy -t "FrozenArcher -- HJJ" &
