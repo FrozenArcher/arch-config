@@ -10,8 +10,12 @@
 	br = branch
 	c = commit
 	s = status
-    a = add
-    pl = pull
-    ps = push
+	a = add
+	pl = pull
+	ps = push
 [pull]
 	rebase = false
+[http]
+	proxy = http://127.0.0.1:7890
+[https]
+	proxy = http://127.0.0.1:7890
