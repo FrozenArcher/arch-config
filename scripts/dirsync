@@ -1,0 +1,148 @@
+#!/usr/bin/bash
+
+help_msg() {
+    echo "Usage: dirsync OPTION [SRC_DIR DST_DIR]"
+    echo "OPTION:"
+    echo "  -b --backup backup"
+    echo "  -s --sync   synchronize"
+    echo "  -h --help   show this help message"
+    echo "SRC_DIR: The source directory"
+    echo "DST_DIR: The destination directory"
+    echo ""
+    echo "If OPTION is not -h or --help, SRC_DIR and DST_DIR must be specified."
+}
+
+DIRSYNC_OPTION=""
+
+case $1 in
+    -b|--backup )
+        #echo backup
+        DIRSYNC_OPTION="b";;
+    -s|--sync   )
+        #echo sync
+        DIRSYNC_OPTION="s";;
+    -h|--help   )
+        help_msg
+        exit 0;;
+    *   )
+        echo "dirsync: error: Unknown option $1"
+        help_msg
+        exit 1;;
+esac
+
+# TODO: handle dirnames with or without '/'
+SRC_DIR="$2"
+DST_DIR="$3"
+
+# Input two parameters
+if [ $# -ne 3 ]; then
+    echo "dirsync: error: three parameters expected."
+    help_msg
+    exit 1
+fi
+
+# Check directory
+if [[ ! -d $SRC_DIR ]]; then
+    echo "dirsync: error: $1 is not a directory."
+    exit 1
+fi
+if [[ ! -d $DST_DIR ]]; then
+    echo "dirsync: error: $2 is not a directory."
+    exit 1
+fi
+
+# Update per file, called by update_dir()
+# param: $1: src_file_name, $2: src_dir_name, $3: dst_dir_name
+update_file() {
+    DST_FILE="$3/$1"
+    SRC_FILE="$2/$1"
+    # dest file exists
+    if [ -f "$DST_FILE" ]; then
+        # compare modify time
+        if [ "$(stat -c %Y "$SRC_FILE")" -gt "$(stat -c %Y "$DST_FILE")" ]; then
+            # source file is newer than dest file
+            cp -af "$SRC_FILE" "$DST_FILE"
+            echo "copied $SRC_FILE to $DST_FILE"
+        fi
+    elif [ ! -f "$DST_FILE" ]; then
+        # dest file does not exist
+        cp -a "$SRC_FILE" "$DST_FILE"
+        echo "created $DST_FILE"
+    fi
+}
+
+# Recursively update the whole directory
+# param: $1: dir_name $2: dest_dir_name
+update_dir() {
+    # add suffixes to recognize directory & file
+    for item in $(ls -AF "$1" | xargs); do
+        if [ "${item: -1}" == "/" ]; then
+            # directory
+            # escape the '/' suffix
+            # if directory not exist, then create
+            mkdir -p "$1/${item:0:-1}" "$2/${item:0:-1}"
+            # then recursively update the directory
+            update_dir "$1/${item:0:-1}" "$2/${item:0:-1}"
+        else
+            # regular file
+            # escape the file type suffixes in each item
+            update_file "${item/%[\*=>@]/''}" "$1" "$2"
+        fi
+    done
+}
+
+
+# Recursively searches dest dir & compare with src dir.
+# If a file or a dir exists in dest dir && not exist in src dir,
+# then it is deleted. If both exist, then continue recursive search.
+# param: $1: dir_name $2: dest_dir_name
+update_delete_dir() {
+    # add suffixes to recognize directory & file
+    for item in $(ls -AF "$2" | xargs); do
+        if [ "${item: -1}" == "/" ]; then
+            # directory
+            # escape the '/' suffix
+            if [ ! -d "$1/${item:0:-1}" ]; then
+                # exist in dest dir, not exist in src dir
+                rm -rf "$2/${item:0:-1}"
+                echo "removed directory $2/${item:0:-1}/ and its files"
+            else
+                update_delete_dir "$1/${item:0:-1}" "$2/${item:0:-1}"
+            fi
+        else
+            # regular file
+            # escape the file type suffixes in each item
+            FILE_NAME="${item/%[\*=>@]/''}"
+            if [ ! -f "$1/$FILE_NAME" ]; then
+                # file removed
+                rm -f "$2/$FILE_NAME"
+                echo "removed file $2/$FILE_NAME"
+            fi
+        fi
+    done
+}
+
+# The backup operation.
+# params: $1: src dir, $2: dest dir
+backup_dir() {
+    update_delete_dir "$1" "$2"
+    update_dir "$1" "$2"
+}
+
+# Sync files, i.e. update from SRC_DIR to DST_DIR then update back.
+# params: $1: src dir, $2: dest dir
+sync_dir() {
+    update_dir "$1" "$2"
+    update_dir "$2" "$1"
+}
+
+case $DIRSYNC_OPTION in
+    b)
+    echo "dirsync backup: from $SRC_DIR to $DST_DIR"
+    backup_dir "$SRC_DIR" "$DST_DIR"
+    echo "done.";;
+    s)
+    echo "dirsync synchronize: between $SRC_DIR and $DST_DIR"
+    sync_dir "$SRC_DIR" "$DST_DIR"
+    echo "done.";;
+esac
