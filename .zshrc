@@ -141,7 +141,7 @@ alias xi="startx ~/.xinitrc i3"
 alias s="sudo systemctl start sddm"
 
 #  git / config cammands  #
-alias config='/usr/bin/git --git-dir=/home/fracher/.cfg/ --work-tree=/home/fracher'
+alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias g=git
 alias ga="git add "
 alias gaa="git add ."
