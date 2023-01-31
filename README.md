@@ -20,9 +20,20 @@ Use `s` to start sddm, or enable/start `sddm.service` with `systemctl`.
 
 ## Installation
 
+### First install oh-my-zsh + autosuggestions + syntax-highlighting
+
+``` bash
+# please install wget first.
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+### Next install dotfiles
+
 using git bare repository:
 
-```
+``` bash
 # set up the alias and clone repository
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 echo ".cfg" >> .gitignore
@@ -50,15 +61,6 @@ If you use zsh, the config alias is already in the `.zshrc` file.
 Otherwise you should place it in your shell's profile.
 
 *refer to [this article](https://www.atlassian.com/git/tutorials/dotfiles)*
-
-### The Installation of oh-my-zsh + autosuggestions + syntax-highlighting
-
-```
-# please install wget first.
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-```
 
 ***
 
