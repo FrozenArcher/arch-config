@@ -63,23 +63,3 @@ Otherwise you should place it in your shell's profile.
 *refer to [this article](https://www.atlassian.com/git/tutorials/dotfiles)*
 
 ***
-
-## Tools for Development
-
-(except `base-devel`)
-
-### C
-
-```
-# binaries
-valgrind
-doxygen
-
-# libraries
-gsl
-
-```
-
-## TODO
-
-* clear the scripts
