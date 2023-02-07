@@ -85,6 +85,10 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+if [ -f /usr/share/nvm/init-nvm.sh ]; then
+	source /usr/share/nvm/init-nvm.sh
+fi
+
 
 # User configuration
 

@@ -6,7 +6,7 @@ export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=ibus
 
 # QT theme
-export QT_QPA_PLATFORMTHEME=qt5ct
+QT_STYLE_OVERRIDE=kvantum
 
 # Default proxy settings
 export all_proxy="http://127.0.0.1:7890"

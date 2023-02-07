@@ -43,7 +43,7 @@ bindsym $mod+Shift+s exec xfce4-screenshooter -r
 bindsym $mod+o exec cfw
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Shift+Return exec kitty
 
 # rofi
 # app runner
