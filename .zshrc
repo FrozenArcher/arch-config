@@ -47,7 +47,7 @@ DISABLE_MAGIC_FUNCTIONS="true"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -129,14 +129,8 @@ export https_proxy='http://127.0.0.1:7890'
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-#  system control  #
+#  systemd  #
 alias sys="sudo systemctl "
-alias syss="sudo systemctl start "
-alias syse="sudo systemctl enable "
-alias sysse="sudo systemctl enable --now "
-alias sysr="sudo systemctl restart "
-alias po="poweroff"
-alias rb="reboot"
 
 #  start desktop  #
 alias x="startx ~/.xinitrc"
