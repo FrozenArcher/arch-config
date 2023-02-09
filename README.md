@@ -1,29 +1,35 @@
 # Archlinux Configuration
 
-**The complete multi-desktop environment handled by sddm(xorg & wayland) and xinit(xorg only)**
-
-Some related config files and scripts are also available.
-
 *Also: my [dwm repo](https://github.com/FrozenArcher/dwm.git), my [neovim configuration](https://github.com/FrozenArcher/nvim-config.git)*
 
-## Desktops
+## Contents
 
-There're config files for the following desktops, which you can start via **sddm entries** or via `xinit` shortcuts (only available with `.zshrc` in my dotfile repo):
+### Desktop Environments
 
-* dwm (simply `x` or `x d|dwm`)
-* i3 + polybar (or i3status-rust) (`xi` or `x i|i3`)
-* bspwm + polybar (`xb` or `x b|bsp|bspwm`)
-* kde-plasma (`x k|kde`)
-* swaywm + waybar (sddm only)
+Recommended to use `sddm`. The `.xinitrc` is also available but not tested.
 
-Use `s` to start sddm, or enable/start `sddm.service` with `systemctl`.
+* awesome + picom
+* bspwm + sxhkd + polybar + rofi + picom
+* [dwm + rofi + picom](https://github.com/FrozenArcher/dwm.git)
+* i3 + polybar/i3status-rust + rofi + picom
+* swaywm + waybar + wofi (long ago...)
+
+### Useful Programs
+
+* very minimal `.vimrc`
+* very minimal `.bashrc`
+* complete `.zshrc`
+* kitty
+* neofetch
 
 ## Installation
 
 ### First install oh-my-zsh + autosuggestions + syntax-highlighting
 
 ``` bash
-# please install wget first.
+# install wget & zsh first.
+yay -S zsh wget
+# install omz.
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -37,7 +43,7 @@ using git bare repository:
 # set up the alias and clone repository
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 echo ".cfg" >> .gitignore
-git clone --bare https://github.com/FrozenArcher/arch-config.git $HOME/.cfg
+git clone --bare git@github.com:FrozenArcher/arch-config.git $HOME/.cfg
 config config --local status.showUntrackedFiles no
 
 config checkout
@@ -57,9 +63,4 @@ please backup the conflict files, delete them and re-run the command:
 config checkout
 ```
 
-If you use zsh, the config alias is already in the `.zshrc` file.
-Otherwise you should place it in your shell's profile.
-
 *refer to [this article](https://www.atlassian.com/git/tutorials/dotfiles)*
-
-***
