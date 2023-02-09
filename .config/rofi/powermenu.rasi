@@ -18,8 +18,8 @@ window {
     border:                         0;
     padding:                        10;
     transparency:                   "real";
-    width:                          200px;
-    location:                       east;
+    width:                          300px;
+    location:                       center;
 /*y-offset:                       18;*/
 /*x-offset:	                    850;*/
 }

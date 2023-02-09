@@ -3,7 +3,7 @@
  * Maintainer: joekamprad <joekamprad@endeavouros.com>
  *******************************************************/
 configuration {
-    font:				    "HarmonyOS Sans 16";
+    font:				    "FiraCode Nerd Font 14";
     show-icons:				true;
     icon-theme:				"Qogir";
     display-drun:			"Apps";
