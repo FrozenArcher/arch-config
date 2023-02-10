@@ -116,7 +116,7 @@ mytextclock = wibox.widget.textclock(' 🕓 %F %H:%M ')
 
 -- Create a system tray
 mysystray = wibox.widget.systray()
-mysystray.base_size = 26
+mysystray.base_size = 34
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -205,7 +205,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 30 })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 40 })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
