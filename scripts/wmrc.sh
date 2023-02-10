@@ -14,3 +14,4 @@ run nm-applet &
 run udiskie --tray &
 run blueman-applet &
 run xfce4-power-manager &
+run pasystray &
