@@ -6,6 +6,7 @@ run() {
 	fi
 }
 
+~/.fehbg
 run picom -b
 run cfw &
 run fcitx5 &
