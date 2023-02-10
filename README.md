@@ -21,16 +21,25 @@ Recommended to use `sddm`. The `.xinitrc` is also available but not tested.
 * complete `.zshrc`
 * kitty
 * neofetch
+* `.fehbg` for wallpapers
 
 ## Installation
+
+### [OPTIONAL] Setup proxy Environment variables
+
+```bash
+export http_proxy=http://127.0.0.1:7890
+export https_proxy=http://127.0.0.1:7890
+```
 
 ### First install oh-my-zsh + autosuggestions + syntax-highlighting
 
 ``` bash
-# install wget & zsh first.
+# Install wget & zsh first.
 yay -S zsh wget
-# install omz.
+# Install omz.
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Install plugins.
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
@@ -62,5 +71,15 @@ please backup the conflict files, delete them and re-run the command:
 ```
 config checkout
 ```
+
+### Wallpaper Setting
+
+Use a symbolic link to set up your wallpaper (in window managers).
+
+```bash
+ln -sf /path/to/wallpaper ~/.wallpaper
+```
+
+***
 
 *refer to [this article](https://www.atlassian.com/git/tutorials/dotfiles)*
