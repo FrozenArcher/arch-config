@@ -19,7 +19,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 -- Auto start
-awful.spawn.with_shell("~/.config/awesome/autostart.sh")
+awful.spawn.with_shell("~/scripts/wmrc.sh")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
