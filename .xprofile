@@ -6,7 +6,10 @@ export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=ibus
 
 # QT theme
-QT_STYLE_OVERRIDE=kvantum
+if [[ "$DESKTOP_SESSION" != "plasma" ]]; then
+    export QT_QPA_PLATFORMTHEME=qt5ct
+fi
+#export QT_STYLE_OVERRIDE=kvantum
 
 # Default proxy settings
 export all_proxy="http://127.0.0.1:7890"
